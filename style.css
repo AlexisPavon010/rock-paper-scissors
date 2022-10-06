@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  background: radial-gradient(134.34% 134.34% at 50% 0%,
+      #1f3757 0%,
+      #131537 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.scoreboard {
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.title {}
+
+.score {
+  width: 150px;
+  height: 114px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score h1 {
+  color: #565468;
+  font-size: 56px;
+}
+
+.score p {
+  color: #161182;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 2.5px;
+}
+
+
+.hands {
+  max-width: 430px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  background-image: url('assets/triangle.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+img {
+  max-width: 200px;
+  width: calc(90% - 10px);
+}
+
+.hand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hands .hand {
+  cursor: pointer;
+  transition: all ease-in 0.25s;
+  transform: scale(1, 1);
+  width: calc(50% - 10px);
+  max-width: 200px;
+}
+
+.hands:hover .hand:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.paper {}
+
+.scissors {}
+
+.rock {}
+
+.contest {
+  width: 100%;
+  max-width: 900px;
+  display: none;
+  margin-top: 40px;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-areas: 'userhand referee computerhand';
+}
+
+@media (max-width: 480px) {
+  .contest {
+    grid-template-areas: 'userhand computerhand' 'referee referee';
+  }
+}
+
+.contest>div {
+  flex: 1;
+}
+
+.contest h1 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.userhand {
+  grid-area: userhand;
+}
+
+.handImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.referee {
+  grid-area: referee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.referee h1 {
+  font-size: 45px;
+}
+
+.decision {}
+
+.newGame {
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: hls(229m 25%, 31%);
+  transition: all 0.15s;
+}
+
+.newGame:hover {
+  background-color: bisque;
+  transform: translate3d(0px, -2px, 0px);
+}
+
+.computerhand {
+  grid-area: computerhand;
+}
